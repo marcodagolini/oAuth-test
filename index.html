@@ -93,7 +93,8 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 	
 <script>
 var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
-var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn"; 
+var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
+var Bearer = "";
 	
 $("#CustomerID").on("input", function() {
 	if ($("#CustomerID").val() != "") {
@@ -140,7 +141,8 @@ if ($("#CustomerID").val() != "") {
         document.getElementById("sendStat").style = "color : red";
       }
       else{
-	console.log(request.responseText);   
+	var Bearer = request.responseText.access_token
+	console.log(Bearer);   
       }
     };
 }
@@ -148,21 +150,14 @@ else{
     document.getElementById("sendStat").innerHTML = "Insert the ID!";
     document.getElementById("sendStat").style = "color : red";
 }
+	
+	
+	
+	
 
 };
 	
 	
-	
-	/*
-	
-	 var request = new XMLHttpRequest();
-    request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
-    request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    request.setRequestHeader('Accept', 'application/json');
-    request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
-	
-	*/
 
 	
 </script>
