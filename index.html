@@ -96,7 +96,7 @@ var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn"; 
 	
 $("#CustomerID").on("input", function() {
-	if (CustomerID != "") {
+	if (document.getElementById("CustomerID").innerHTML != "") {
             document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
             document.getElementById("sendStat").style = "color : green";
         }
