@@ -77,7 +77,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">*#Customer ID:</div>
+<div id="text">#Customer ID:</div>
 
 <input id="CustomerID" float="left" size="20" type="input"><br><br>
 
@@ -96,7 +96,7 @@ var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn"; 
 	
 $("#CustomerID").on("input", function() {
-	if (CustomerID != "") {
+	if (CustomerID != null) {
             document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
             document.getElementById("sendStat").style = "color : green";
         }
