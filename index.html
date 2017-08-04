@@ -77,7 +77,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">#@Customer ID:</div>
+<div id="text">#Customer ID:</div>
 
 <input id="CustomerID" float="left" size="20" type="input"><br><br>
 
@@ -121,6 +121,10 @@ if ($("#CustomerID").val() != "") {
     request.open('POST', URL, true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Access-Control-Allow-Origin', URL);
+    request.setRequestHeader('Access-Control-Allow-Methods', POST);
+    request.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+	
     request.setRequestHeader('Accept', 'application/json');
     request.send({ "grant_type": "client_credentials",
      "client_id": client_id,
