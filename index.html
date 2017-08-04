@@ -128,11 +128,11 @@ if ($("#CustomerID").val() != "") {
 
 	
 	
-    request.send({ "grant_type": "client_credentials",
+    request.send(JSON.stringify({ "grant_type": "client_credentials",
      "client_id": client_id,
      "client_secret": client_secret,
      "audience": "https://lpscdemo.eu.auth0.com/api/v2/"
-    });
+    }));
     console.log("Posting (1)...");
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 400){
