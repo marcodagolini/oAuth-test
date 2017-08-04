@@ -77,7 +77,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">77Customer ID:</div>
+<div id="text">88Customer ID:</div>
 
 <input id="CustomerID" float="left" size="20" type="input"><br><br>
 
@@ -120,7 +120,7 @@ if ($("#CustomerID").val() != "") {
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
     request.setRequestHeader('Content-Type', 'application/json');
-    request.setRequestHeader('Access-Control-Allow-Origin', '*');
+    request.setRequestHeader('Access-Control-Allow-Origin', 'https://lpscdemo.eu.auth0.com/oauth/token');
     request.setRequestHeader('Access-Control-Request-Methods', 'POST');
   
 
