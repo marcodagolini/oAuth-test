@@ -120,13 +120,10 @@ if ($("#CustomerID").val() != "") {
 
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
-    request.setRequestHeader("Access-Control-Allow-Origin", "https://marcodagolini.github.io");
-    request.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, X-Requested-With, Authorization, Auth0-Client, X-Request-Language");
-    request.setRequestHeader("access-control-allow-methods", "GET, PUT, POST, DELETE, PATCH, OPTIONS");
-    request.setRequestHeader("access-control-max-age", "1000");
+ 
     request.setRequestHeader("cache-control", "no-cache");
-    request.setRequestHeader("content-type", "text/plain; charset=utf-8");
-    request.setRequestHeader("x-robots-tag", "noindex, nofollow, nosnippet, noarchive");
+    request.setRequestHeader("content-type", "application/json");
+   
 
 
 	
