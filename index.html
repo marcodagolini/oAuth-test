@@ -133,14 +133,14 @@ if ($("#CustomerID").val() != "") {
      "client_secret": client_secret,
      "audience": "https://lpscdemo.eu.auth0.com/api/v2/"
     });
-    console.log("sending message..");
+    console.log("Posting (1)...");
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 400){
         document.getElementById("sendStat").innerHTML = "Error getting Bearer";
         document.getElementById("sendStat").style = "color : red";
       }
       else{
-	alert(request.responseText);    
+	console.log(request.responseText);   
       }
     };
 }
