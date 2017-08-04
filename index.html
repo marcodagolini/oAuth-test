@@ -142,7 +142,7 @@ if ($("#CustomerID").val() != "") {
       }
       else{
 	
-	var Bearer = JSON.parse(request.responseText).access_token;
+	var Bearer = (JSON.parse(request.responseText)).access_token;
 	console.log(Bearer);   
       }
     };
