@@ -141,7 +141,8 @@ if ($("#CustomerID").val() != "") {
         document.getElementById("sendStat").style = "color : red";
       }
       else{
-	var Bearer = request.responseText.access_token[0];
+	
+	var Bearer = JSON.parse(request.responseText).access_token[0];
 	console.log(Bearer);   
       }
     };
