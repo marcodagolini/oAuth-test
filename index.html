@@ -142,8 +142,8 @@ if ($("#CustomerID").val() != "") {
       }
       else{
 	
-	var Bearer = (JSON.parse(request.responseText)).[access_token];
-	console.log(Bearer);   
+	// var Bearer = (JSON.parse(request.responseText)).access_token;
+	console.log((JSON.parse(request.responseText)).access_token);   
       }
     };
 }
