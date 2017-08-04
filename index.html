@@ -144,11 +144,13 @@ if ($("#CustomerID").val() != "") {
 	      
 	function ahead(){
 		
+	  // var Bearer = (JSON.parse(request.responseText)).access_token;
+	  console.log((JSON.parse(request.responseText)).access_token);   
+		
          }
         setTimeout(ahead, 2000);
 	
-	// var Bearer = (JSON.parse(request.responseText)).access_token;
-	console.log((JSON.parse(request.responseText)).access_token);   
+	
       }
     };
 }
