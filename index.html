@@ -10,7 +10,7 @@ maximum-scale=1">
 body {
 margin : 10px;
 padding: 2px;
-background-image: url("http://i.imgur.com/HxCotl3.jpg");
+background-image: url("https://i.imgur.com/HxCotl3.jpg");
 }
 #title {
 padding: 2px;
@@ -77,7 +77,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">@Customer ID:</div>
+<div id="text">%Customer ID:</div>
 
 <input id="CustomerID" float="left" size="20" type="input"><br><br>
 
@@ -117,16 +117,22 @@ if ($("#CustomerID").val() != "") {
     var CustomerID = document.getElementById("CustomerID").value;
 
     var request = new XMLHttpRequest();
-    request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
-    request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.open('POST', "https://lpscdemo.eu.auth0.com/oauth/token", true);
+    request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Accept', 'application/json');
-    request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
+    request.send({ "grant_type": "client_credentials",
+     "client_id": client_id,
+     "client_secret": client_secret,
+     "audience": "https://lpscdemo.eu.auth0.com/api/v2/"
+    });
     console.log("sending message..");
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 400){
-        document.getElementById("sendStat").innerHTML = "Errore";
+        document.getElementById("sendStat").innerHTML = "Error getting Bearer";
         document.getElementById("sendStat").style = "color : red";
+      }
+      else{
+	alert(request.responseText);    
       }
     };
 }
@@ -136,6 +142,19 @@ else{
 }
 
 };
+	
+	
+	
+	/*
+	
+	 var request = new XMLHttpRequest();
+    request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
+    request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.setRequestHeader('Accept', 'application/json');
+    request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
+	
+	*/
 
 	
 </script>
