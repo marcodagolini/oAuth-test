@@ -107,44 +107,47 @@ $("#CustomerID").on("input", function() {
 });
 	
 	
-/*	
+	
 
 function sendData() {
 
-var CustomerID = document.getElementById("CustomerID").value;
+if ($("#CustomerID").val() != "") {
+           
+    document.getElementById("sendStat").innerHTML = "";
+    var CustomerID = document.getElementById("CustomerID").value;
 
-var authorizationBasic = window.btoa(AccountSid + ':' + AuthToken);
-var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
 
-if (CustomerID != "") {
-   document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
-   document.getElementById("sendStat").style = "color : green";
+
+    if (readyToSend === true){
+    request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
+    request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.setRequestHeader('Accept', 'application/json');
+    request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
+    console.log("sending message..");
+    request.onreadystatechange = function () {
+      if (request.readyState === 4) {
+          console.log(request.responseText);
+	      document.getElementById("sendStat").innerHTML = "SMS inviato"
+	      document.getElementById("sendStat").style = "color : green";
+        }
+      if (this.readyState == 4 && this.status == 400){
+        document.getElementById("sendStat").innerHTML = "Errore";
+        document.getElementById("sendStat").style = "color : red";
+      }
+     };
+    }
+    console.log ("readyToSend? " + readyToSend);
+  }
+}
+else{
+    document.getElementById("sendStat").innerHTML = "Insert the ID!";
+    document.getElementById("sendStat").style = "color : red";
 }
 
-if (readyToSend === true){
-request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
-request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
-request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-request.setRequestHeader('Accept', 'application/json');
-request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
-console.log("sending message..");
-request.onreadystatechange = function () {
-  if (request.readyState === 4) {
-      console.log(request.responseText);
-	  document.getElementById("sendStat").innerHTML = "SMS inviato"
-	  document.getElementById("sendStat").style = "color : green";
-   }
-if (this.readyState == 4 && this.status == 400){
-document.getElementById("sendStat").innerHTML = "Errore";
-document.getElementById("sendStat").style = "color : red";
-}
-};
-}
-console.log ("readyToSend? " + readyToSend);
-}
 
 
-*/
 	
 </script>
 
