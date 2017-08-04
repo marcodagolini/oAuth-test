@@ -142,10 +142,14 @@ if ($("#CustomerID").val() != "") {
       }
       else{
 	      
+	document.getElementById("sendStat").innerHTML = "...retrieving the Bearer...";
+        document.getElementById("sendStat").style = "color : blue";
 	function ahead(){
 		
-	  // var Bearer = (JSON.parse(request.responseText)).access_token;
-	  console.log((JSON.parse(request.responseText)).access_token);   
+	  var Bearer = (JSON.parse(request.responseText)).access_token;
+          document.getElementById("sendStat").innerHTML = "We got a Bearer!";
+          document.getElementById("sendStat").style = "color : green";
+	  console.log(Bearer);   
 		
          }
         setTimeout(ahead, 2000);
