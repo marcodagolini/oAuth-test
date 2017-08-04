@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimumscale=1,
 maximum-scale=1">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
-<title>Vodafone SMS Sender</title>
+
+<title>oAuth-tester</title>
 
 <style>
 body {
@@ -76,95 +76,47 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 </head>
 <body>
 
-<div id="title">Vodafone SMS Sender</div><br>
-<div id="text">Invia a:</div>
-<div id="text" style="padding:15px;float:left">+</div>
-<input id="prefisso" float="left" size="2" value="39" type="input">
-<input id="to" float="left" size="20" type="input"><br><br>
-<div id="text">Messaggio</div>
-<textarea id="msgbody" rows="4" cols="30"></textarea><br>
+<div id="title">oAuth Tester</div><br>
+<div id="text">Customer ID:</div>
+
+<input id="CustomerID" float="left" size="20" type="input"><br><br>
+
 
 <br>
 
-<button type="button" onclick="sendData()">Invia SMS</button>
+<button type="button" onclick="sendData()">oAuthenticate!</button>
 <div id="sendStat"></div>
 	
 	
 
-	
-	
-	
-	
-	
-	
-            <script>
-              
-     
-              
-            $(document).ready(function() {
-              
-              var SDK=lpTag.agentSDK;
-              SDK.init();
-              
-          var Time = setTimeout(function(){  
-                
-                var onSuccess1 = function(data) {
-                // Do something with the returning data
-                var elem=document.getElementById("to");
-                elem.value=data;
-                };
-                
-                var onError1 = function(data) {
-                // Do something with the returning data
-                var elem=document.getElementById("to");
-                elem.value="null";
-                };
-                
- 
-               
-             
-                SDK.get('surveyQuestions.preChat.phone.value', onSuccess1, onError1);
-		  
-	}, 3000);
-	   
-	  
-});
-   
-        
-      </script>	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    
 	
 <script>
-var AccountSid  = "ACb5fb3257bf67189507a00c1f95caa7d7";
-var AuthToken = "430582dc56a920e9875d54affbf5901d"; 
-var source = "%2B18447224192";
+var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
+var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn"; 
+	
+$("#CustomerID").on("input", function() {
+	if (CustomerID != "") {
+            document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
+            document.getElementById("sendStat").style = "color : green";
+        }
+});
+	
+	
+/*	
+
 function sendData() {
-var readyToSend = false;
-var destination = document.getElementById("prefisso").value + document.getElementById("to").value;
-var messageBody = document.getElementById("msgbody").value;
+
+var CustomerID = document.getElementById("CustomerID").value;
+
 var authorizationBasic = window.btoa(AccountSid + ':' + AuthToken);
 var request = new XMLHttpRequest();
-console.log ("variables passed" +  destination +  messageBody);
-if (messageBody != "" && destination != "" ) {
-var readyToSend = true;
+
+if (CustomerID != "") {
+   document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
+   document.getElementById("sendStat").style = "color : green";
 }
-else{
-console.log ("error");
-document.getElementById("sendStat").innerHTML = "Completa i campi!!";
-document.getElementById("sendStat").style = "color : red";
-}
+
 if (readyToSend === true){
 request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
 request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
@@ -186,6 +138,10 @@ document.getElementById("sendStat").style = "color : red";
 }
 console.log ("readyToSend? " + readyToSend);
 }
+
+
+*/
+	
 </script>
 
 
