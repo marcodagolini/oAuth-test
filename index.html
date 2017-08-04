@@ -1,0 +1,192 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimumscale=1,
+maximum-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
+<title>Vodafone SMS Sender</title>
+
+<style>
+body {
+margin : 10px;
+padding: 2px;
+background-image: url("http://i.imgur.com/pyrLJZE.png");
+}
+#title {
+padding: 2px;
+font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+font-size: 24px;	
+}
+button {
+    background-color: #f68a1f;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 4px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+}
+button:hover {
+    background-color: #da7009;
+    color: white;	
+}
+input {
+    
+    padding: 10px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    font-size: 24px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+	font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+}
+input:focus {
+    border: 3px solid #555;
+}
+textarea {
+    
+    padding: 10px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    font-size: 24px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+	font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+}
+textarea:focus {
+    border: 3px solid #555;
+}
+#text {
+padding: 2px;
+font-size: 24px;
+font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div id="title">Vodafone SMS Sender</div><br>
+<div id="text">Invia a:</div>
+<div id="text" style="padding:15px;float:left">+</div>
+<input id="prefisso" float="left" size="2" value="39" type="input">
+<input id="to" float="left" size="20" type="input"><br><br>
+<div id="text">Messaggio</div>
+<textarea id="msgbody" rows="4" cols="30"></textarea><br>
+
+<br>
+
+<button type="button" onclick="sendData()">Invia SMS</button>
+<div id="sendStat"></div>
+	
+	
+
+	
+	
+	
+	
+	
+	
+            <script>
+              
+     
+              
+            $(document).ready(function() {
+              
+              var SDK=lpTag.agentSDK;
+              SDK.init();
+              
+          var Time = setTimeout(function(){  
+                
+                var onSuccess1 = function(data) {
+                // Do something with the returning data
+                var elem=document.getElementById("to");
+                elem.value=data;
+                };
+                
+                var onError1 = function(data) {
+                // Do something with the returning data
+                var elem=document.getElementById("to");
+                elem.value="null";
+                };
+                
+ 
+               
+             
+                SDK.get('surveyQuestions.preChat.phone.value', onSuccess1, onError1);
+		  
+	}, 3000);
+	   
+	  
+});
+   
+        
+      </script>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<script>
+var AccountSid  = "ACb5fb3257bf67189507a00c1f95caa7d7";
+var AuthToken = "430582dc56a920e9875d54affbf5901d"; 
+var source = "%2B18447224192";
+function sendData() {
+var readyToSend = false;
+var destination = document.getElementById("prefisso").value + document.getElementById("to").value;
+var messageBody = document.getElementById("msgbody").value;
+var authorizationBasic = window.btoa(AccountSid + ':' + AuthToken);
+var request = new XMLHttpRequest();
+console.log ("variables passed" +  destination +  messageBody);
+if (messageBody != "" && destination != "" ) {
+var readyToSend = true;
+}
+else{
+console.log ("error");
+document.getElementById("sendStat").innerHTML = "Completa i campi!!";
+document.getElementById("sendStat").style = "color : red";
+}
+if (readyToSend === true){
+request.open('POST', "https://api.twilio.com/2010-04-01/Accounts/"+AccountSid+"/Messages.json", true);
+request.setRequestHeader('Authorization', 'Basic ' + authorizationBasic);
+request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+request.setRequestHeader('Accept', 'application/json');
+request.send("To=%2B"+destination+"&From="+source+"&Body="+messageBody);
+console.log("sending message..");
+request.onreadystatechange = function () {
+  if (request.readyState === 4) {
+      console.log(request.responseText);
+	  document.getElementById("sendStat").innerHTML = "SMS inviato"
+	  document.getElementById("sendStat").style = "color : green";
+   }
+if (this.readyState == 4 && this.status == 400){
+document.getElementById("sendStat").innerHTML = "Errore";
+document.getElementById("sendStat").style = "color : red";
+}
+};
+}
+console.log ("readyToSend? " + readyToSend);
+}
+</script>
+
+
+</body></html>
