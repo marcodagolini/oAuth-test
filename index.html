@@ -168,15 +168,19 @@ else{
 	
 
   var webAuth = new auth0.WebAuth({
-    domain:       "lpscdemo.eu.auth0.com",
+    domain:       'lpscdemo.eu.auth0.com',
+    redirectUri: 'https://marcodagolini.github.io/oAuth-test',
+    responseType: 'token',
     clientID:     "C7BND3cQPkekO0phB3dEFD3emRmzPVOZ"
   });
 
     console.log("pippo");
 webAuth.client.login({
-  realm: "Username-Password-Authentication",
-  username: "mdagolini@liveperson.com",
-  password: "123456"
+  realm: 'Username-Password-Authentication',
+  username: 'mdagolini@liveperson.com',
+  password: '123456',
+  scope: 'openid profile',
+  audience: 'https://lpscdemo.eu.auth0.com/api/v2/'
  
 }, function(err, authResult) {
 	
