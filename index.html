@@ -179,8 +179,16 @@ webAuth.client.login({
   password: '123456'
  
 }, function(err, authResult) {
+	
+	if (err) {
+           return console.log(err);
+         }
+	
+	 if (authResult) {
+           return console.log(authResult);
+         }
 
-    console.log(authResult.accessToken);
+  //  console.log(authResult.accessToken);
 
 });
 
