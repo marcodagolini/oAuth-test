@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">22Customer ID:</div>
+<div id="text">Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -194,7 +194,7 @@ if (greenlight){
 	
     request.send(JSON.stringify({
        "connection": "Username-Password-Authentication",
-       "email": CustomerID,
+       "email": CustomerID + "@liveperson.com",
        "password": "123456",
        "user_metadata": {},
        "email_verified": false,
