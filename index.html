@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">77Customer ID:</div>
+<div id="text">88Customer ID:</div>
 
 <input id="CustomerID" float="left" size="20" type="input"><br><br>
 
@@ -199,23 +199,26 @@ if (greenlight){
     console.log("Posting (2)...");
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 400){
-	function ahead(){
+	 function ahead(){
 		
-           document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
-           document.getElementById("sendStat").style = "color : blue";
+            document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
+            document.getElementById("sendStat").style = "color : blue";
 		
-	setTimeout(ahead, 2000);	
-      }
-      else{
+         }
+         setTimeout(ahead, 2000);
+     }
+      
+     else{
 	      
 	function ahead(){
 		
 	  Bearer = (JSON.parse(request.responseText)).access_token;
           document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
-          document.getElementById("sendStat").style = "color : blue";  
-		
-         }
-        setTimeout(ahead, 2000);
+          
+		document.getElementById("sendStat").style = "color : blue";  
+        }
+        setTimeout(ahead, 2000);		
+
 	
 	
       }
