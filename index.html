@@ -153,7 +153,8 @@ if ($("#CustomerID").val() != "") {
           document.getElementById("sendStat").innerHTML = "We got a Bearer! Now let me check if this user exists...";
           document.getElementById("sendStat").style = "color : green";
 	  greenlight = 1;
-	  console.log(Bearer);   
+	  console.log(Bearer); 
+	  checkuser();
 		
          }
         setTimeout(ahead, 2000);
