@@ -203,7 +203,7 @@ if (greenlight){
     }));
     console.log("Posting (2)...");
     request.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 400){
+      if (this.status == 400){
 	 function ahead(){
 		
             document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
