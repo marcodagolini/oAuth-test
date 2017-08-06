@@ -96,6 +96,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
 var Bearer = "string";
+var CustomerID = "string";
 var greenlight = 0;
 	
 $("#CustomerID").on("input", function() {
@@ -118,7 +119,7 @@ if ($("#CustomerID").val() != "") {
       
     var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
     document.getElementById("sendStat").innerHTML = "";
-    var CustomerID = document.getElementById("CustomerID").value;
+    CustomerID = document.getElementById("CustomerID").value;
 
 
     var request = new XMLHttpRequest();
@@ -168,9 +169,59 @@ else{
 	
 
 	
+/*	
+	
+if (greenlight){
+      
+    var URL = "https://lpscdemo.eu.auth0.com/api/v2/users";
+    CustomerID = document.getElementById("CustomerID").value;
+
+
+    var request = new XMLHttpRequest();
+    request.open('POST', URL, true);
+ 
+   
+    request.setRequestHeader("content-type", "application/json");
+    request.setRequestHeader("accept", "application/json");
+
+
 	
 	
-if (greenlight){}
+    request.send(JSON.stringify({ "grant_type": "client_credentials",
+     "client_id": client_id,
+     "client_secret": client_secret,
+     "audience": "https://lpscdemo.eu.auth0.com/api/v2/"
+    }));
+    console.log("Posting (1)...");
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 400){
+        document.getElementById("sendStat").innerHTML = "Error getting Bearer";
+        document.getElementById("sendStat").style = "color : red";
+      }
+      else{
+	      
+	document.getElementById("sendStat").innerHTML = "...retrieving the Bearer...";
+        document.getElementById("sendStat").style = "color : blue";
+	function ahead(){
+		
+	  Bearer = (JSON.parse(request.responseText)).access_token;
+          document.getElementById("sendStat").innerHTML = "We got a Bearer! Now let me check if this user exists...";
+          document.getElementById("sendStat").style = "color : green";
+	  greenlight = 1;
+	  console.log(Bearer);   
+		
+         }
+        setTimeout(ahead, 2000);
+	
+	
+      }
+    };
+}
+	
+	
+*/	
+	
+	
 	
 
   var webAuth = new auth0.WebAuth({
