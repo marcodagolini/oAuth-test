@@ -189,12 +189,12 @@ if (greenlight){
     request.setRequestHeader("accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + Bearer);
 
-
+    var email = CustomerID + "@liveperson.com";
 	
 	
     request.send(JSON.stringify({
        "connection": "Username-Password-Authentication",
-       "email": CustomerID + "@liveperson.com",
+       "email": email,
        "password": "123456",
        "user_metadata": {},
        "email_verified": false,
