@@ -96,6 +96,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
 var Bearer = "string";
+var greenlight = 0;
 	
 $("#CustomerID").on("input", function() {
 	if ($("#CustomerID").val() != "") {
@@ -147,9 +148,10 @@ if ($("#CustomerID").val() != "") {
         document.getElementById("sendStat").style = "color : blue";
 	function ahead(){
 		
-	  var Bearer = (JSON.parse(request.responseText)).access_token;
-          document.getElementById("sendStat").innerHTML = "We got a Bearer!";
+	  Bearer = (JSON.parse(request.responseText)).access_token;
+          document.getElementById("sendStat").innerHTML = "We got a Bearer! Now let me check if this user exists...";
           document.getElementById("sendStat").style = "color : green";
+	  greenlight = 1;
 	  console.log(Bearer);   
 		
          }
@@ -165,6 +167,10 @@ else{
 }
 	
 
+	
+	
+	
+if (greenlight){}
 	
 
   var webAuth = new auth0.WebAuth({
