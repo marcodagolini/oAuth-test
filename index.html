@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">55Customer ID (not email format):</div>
+<div id="text">66Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -208,13 +208,15 @@ if (greenlight && secondgreenlight){
 	
                document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
                document.getElementById("sendStat").style = "color : blue";
+	       login();
 
         }
       
         else{
 
-             document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
-             document.getElementById("sendStat").style = "color : blue";  
+               document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
+               document.getElementById("sendStat").style = "color : blue";  
+               login();
 	
          }
       
@@ -225,9 +227,12 @@ if (greenlight && secondgreenlight){
    setTimeout(ahead, 2000);	
 }	
 	
+
 	
 	
-/*	
+function login(){	
+	
+
 
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
@@ -236,36 +241,40 @@ if (greenlight && secondgreenlight){
     clientID:     "C7BND3cQPkekO0phB3dEFD3emRmzPVOZ"
   });
 
-    console.log("pippo");
-webAuth.client.login({
-  realm: 'Username-Password-Authentication',
-  username: 'mdagolini@liveperson.com',
-  password: '123456'
+    console.log("Posting (3)...");
+  webAuth.client.login({
+    realm: 'Username-Password-Authentication',
+    username: 'mdagolini@liveperson.com',
+    password: '123456'
  
-}, function(err, authResult) {
+  }, function(err, authResult) {
 	
 	if (err) {
-           return console.log(err);
+	    document.getElementById("sendStat").innerHTML = "Something went wrong here!";
+            document.getElementById("sendStat").style = "color : red"; 
+            return console.log(err);
          }
 	
 	 if (authResult) {
-           return console.log(authResult.idToken);
+	    document.getElementById("sendStat").innerHTML = "oAuthentication done!!";
+            document.getElementById("sendStat").style = "color : green"; 
+            return console.log(authResult.idToken);
          }
 
   //  console.log(authResult.accessToken);
 
-});
+     });
 
 
 
 
 
 
-*/	
 	
 	
 	
 	
+}	
 	
 	
 	
@@ -273,7 +282,7 @@ webAuth.client.login({
 };
 	
 	
-console.log("end");
+
 	
 </script>
 
