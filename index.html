@@ -246,6 +246,7 @@ if (thirdgreenlight){
     console.log("Posting (3)...");
   function ahead(){
   webAuth.client.login({
+    grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
     realm: 'Username-Password-Authentication',
     username: 'mdagolini@liveperson.com',
     password: '123456'
