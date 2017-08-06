@@ -169,12 +169,11 @@ else{
 	
 
 	
-/*	
+	
 	
 if (greenlight){
       
     var URL = "https://lpscdemo.eu.auth0.com/api/v2/users";
-    CustomerID = document.getElementById("CustomerID").value;
 
 
     var request = new XMLHttpRequest();
@@ -183,32 +182,37 @@ if (greenlight){
    
     request.setRequestHeader("content-type", "application/json");
     request.setRequestHeader("accept", "application/json");
+    request.setRequestHeader("Authorization", "Bearer " + Bearer);
 
 
 	
 	
-    request.send(JSON.stringify({ "grant_type": "client_credentials",
-     "client_id": client_id,
-     "client_secret": client_secret,
-     "audience": "https://lpscdemo.eu.auth0.com/api/v2/"
+    request.send(JSON.stringify({
+       "connection": "Username-Password-Authentication",
+       "email": CustomerID + "@liveperson.com",
+       "password": "123456",
+       "user_metadata": {},
+       "email_verified": false,
+       "verify_email": false,
+       "app_metadata": {}
     }));
-    console.log("Posting (1)...");
+    console.log("Posting (2)...");
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 400){
-        document.getElementById("sendStat").innerHTML = "Error getting Bearer";
-        document.getElementById("sendStat").style = "color : red";
+	function ahead(){
+		
+           document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
+           document.getElementById("sendStat").style = "color : blue";
+		
+	setTimeout(ahead, 2000);	
       }
       else{
 	      
-	document.getElementById("sendStat").innerHTML = "...retrieving the Bearer...";
-        document.getElementById("sendStat").style = "color : blue";
 	function ahead(){
 		
 	  Bearer = (JSON.parse(request.responseText)).access_token;
-          document.getElementById("sendStat").innerHTML = "We got a Bearer! Now let me check if this user exists...";
-          document.getElementById("sendStat").style = "color : green";
-	  greenlight = 1;
-	  console.log(Bearer);   
+          document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
+          document.getElementById("sendStat").style = "color : blue";  
 		
          }
         setTimeout(ahead, 2000);
@@ -219,10 +223,10 @@ if (greenlight){
 }
 	
 	
-*/	
 	
 	
 	
+/*	
 
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
@@ -256,7 +260,7 @@ webAuth.client.login({
 
 
 
-	
+*/	
 	
 	
 	
