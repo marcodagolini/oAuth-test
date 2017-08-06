@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">Customer ID (not email format):</div>
+<div id="text">11Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -191,42 +191,33 @@ if (greenlight){
 
     var email = CustomerID + "@liveperson.com";
 	
+    function ahead(){
+       request.send(JSON.stringify({
+          "connection": "Username-Password-Authentication",
+          "email": email,
+          "password": "123456",
+          "user_metadata": {},
+          "email_verified": false,
+          "verify_email": false,
+          "app_metadata": {}
+       }));
+       console.log("Posting (2)...");
+       request.onreadystatechange = function () {
+         if (this.status == 400){
 	
-    request.send(JSON.stringify({
-       "connection": "Username-Password-Authentication",
-       "email": email,
-       "password": "123456",
-       "user_metadata": {},
-       "email_verified": false,
-       "verify_email": false,
-       "app_metadata": {}
-    }));
-    console.log("Posting (2)...");
-    request.onreadystatechange = function () {
-      if (this.status == 400){
-	 function ahead(){
-		
-            document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
-            document.getElementById("sendStat").style = "color : blue";
-		
-         }
-         setTimeout(ahead, 2000);
-     }
-      
-     else{
-	      
-	function ahead(){
-		
-	  Bearer = (JSON.parse(request.responseText)).access_token;
-          document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
-          
-		document.getElementById("sendStat").style = "color : blue";  
-        }
-        setTimeout(ahead, 2000);		
+               document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
+               document.getElementById("sendStat").style = "color : blue";
 
+        }
+      
+        else{
+
+             document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
+             document.getElementById("sendStat").style = "color : blue";  
 	
-	
-      }
+         }
+      {
+      setTimeout(ahead, 2000);
     };
 }
 	
