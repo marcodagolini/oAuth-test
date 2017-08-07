@@ -259,7 +259,7 @@ function ahead(){
 	if (err) {
 	    document.getElementById("sendStat").innerHTML = "Something went wrong here!";
             document.getElementById("sendStat").style = "color : red"; 
-            return console.log(err);
+            return console.log(JSON.stringify(err));
          }
 	
 	 if (authResult) {
