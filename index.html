@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">88Customer ID (not email format):</div>
+<div id="text">99Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -265,6 +265,7 @@ if (thirdgreenlight){
 
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
+    redirectUri:  'https://marcodagolini.github.io/oAuth-test',
     responseType: 'token',
     clientID:     'CfT6FefV6FsOQOEI2JU551yXUWVGiTxL'
   });
