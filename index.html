@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">44Customer ID (not email format):</div>
+<div id="text">55Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -185,8 +185,6 @@ if (greenlight && secondgreenlight){
 
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
- 
-   
     request.setRequestHeader("content-type", "application/json");
     request.setRequestHeader("accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + Bearer);
@@ -236,8 +234,45 @@ function proceed(){
 if (thirdgreenlight){
 	
   thirdgreenlight = 0;
+  var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
+  var request = new XMLHttpRequest();
+  request.open('POST', URL, true);
+  request.setRequestHeader("content-type", "application/json");
+
+  var email = CustomerID + "@liveperson.com";
+  request.send(JSON.stringify({
+        "grant_type":"client_credentials",
+	"username": email,
+	"password": "123456",
+	"audience": "https://lpscdemo.eu.auth0.com/api/v2/",
+	"client_id": "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL",
+	"client_secret": "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn",
+	"realm":"Username-Password-Authentication"
+       }));
+   console.log("Posting (3)...");
 	
 	
+	
+	
+   request.onreadystatechange = function () {
+         if (this.status == 400){
+	
+               document.getElementById("sendStat").innerHTML = "Something went wrong here!";
+               document.getElementById("sendStat").style = "color : red";
+	       proceed();
+
+        }
+      
+        else{
+
+               document.getElementById("sendStat").innerHTML = "User logged in!";
+               document.getElementById("sendStat").style = "color : blue";  
+               proceed();
+	
+         }
+      
+      
+      };
 	
 	
 	
