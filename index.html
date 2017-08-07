@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">66Customer ID (not email format):</div>
+<div id="text">77Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -234,7 +234,7 @@ if (greenlight && secondgreenlight){
 function proceed(){	
 	
 if (thirdgreenlight){
-	
+function ahead(){
   thirdgreenlight = 0;
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
@@ -244,7 +244,7 @@ if (thirdgreenlight){
   });
 
     console.log("Posting (3)...");
-  function ahead(){
+
   webAuth.client.login({
     // grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
     realm: 'Username-Password-Authentication',
