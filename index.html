@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">66Customer ID (not email format):</div>
+<div id="text">77Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -240,6 +240,8 @@ if (thirdgreenlight){
   request.setRequestHeader("content-type", "application/json");
 
   var email = CustomerID + "@liveperson.com";
+	
+  function ahead(){
   request.send(JSON.stringify({
         "grant_type":"client_credentials",
 	"username": email,
@@ -275,6 +277,7 @@ if (thirdgreenlight){
       
       
       };
+  }setTimeout(ahead, 2000);
 	
 	
 	
