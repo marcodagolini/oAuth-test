@@ -97,6 +97,7 @@ var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
 var Bearer = "string";
 var CustomerID = "string";
+var idToken = "string";
 var greenlight = 0;
 var secondgreenlight = 1;
 var thirdgreenlight = 1;
@@ -202,8 +203,9 @@ if (greenlight && secondgreenlight){
           "app_metadata": {}
        }));
        console.log("Posting (2)...");
-    function ahead(){
+    
        request.onreadystatechange = function () {
+       function ahead(){
          if (this.status == 400){
 	
                document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
@@ -242,7 +244,7 @@ if (thirdgreenlight){
 
   var email = CustomerID + "@liveperson.com";
 	
-  function ahead(){
+  
   request.send(JSON.stringify({
         "grant_type":"client_credentials",
 	"username": email,
@@ -267,18 +269,20 @@ if (thirdgreenlight){
         }
       
         else{
+	       function ahead(){
 
-               document.getElementById("sendStat").innerHTML = "User logged in!";
-               document.getElementById("sendStat").style = "color : green"; 
-	       var idToken = (JSON.parse(request.responseText)).access_token;
-	       console.log(idToken);
-               proceed();
+                  document.getElementById("sendStat").innerHTML = "User logged in!";
+                  document.getElementById("sendStat").style = "color : green"; 
+	          idToken = (JSON.parse(request.responseText)).access_token;
+	          console.log(idToken);
+                  proceed();
+	       }setTimeout(ahead, 2000);
 	
          }
       
       
       };
-  }setTimeout(ahead, 2000);
+  
 	
 	
 	
