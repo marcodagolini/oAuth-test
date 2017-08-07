@@ -262,7 +262,7 @@ if (thirdgreenlight){
 	
 	
 	
-/*
+
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
     responseType: 'token',
@@ -273,10 +273,10 @@ if (thirdgreenlight){
   webAuth.client.login({
     
     realm: 'Username-Password-Authentication',
-    grant_type: 'client_credentials',
-    audience: 'https://lpscdemo.eu.auth0.com/api/v2/',
     username: 'mdagolini@liveperson.com',
-    password: '123456'
+    password: '123456',
+    scope: 'openid profile',
+    audience: 'https://lpscdemo.eu.auth0.com/api/v2/'
  
   }, function(err, authResult) {
 	
@@ -294,7 +294,14 @@ if (thirdgreenlight){
          }
   //  console.log(authResult.accessToken);
      });
-*/
+
+	
+	
+	
+	
+	
+	
+	
 }
 }	
 	
