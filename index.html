@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">99Customer ID (not email format):</div>
+<div id="text">88Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -97,7 +97,6 @@ var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
 var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
 var Bearer = "string";
 var CustomerID = "string";
-var idToken = "string";
 var greenlight = 0;
 var secondgreenlight = 1;
 var thirdgreenlight = 1;
@@ -115,7 +114,6 @@ $("#CustomerID").on("input", function() {
 	
 	
 	
-
 function sendData() {
 secondgreenlight = 1;
 if ($("#CustomerID").val() != "") {
@@ -123,16 +121,12 @@ if ($("#CustomerID").val() != "") {
     var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
     document.getElementById("sendStat").innerHTML = "";
     CustomerID = document.getElementById("CustomerID").value;
-
-
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
  
    
     request.setRequestHeader("content-type", "application/json");
     request.setRequestHeader("accept", "application/json");
-
-
 	
 	
     request.send(JSON.stringify({ "grant_type": "client_credentials",
@@ -171,10 +165,7 @@ else{
     document.getElementById("sendStat").style = "color : red";
 }
 	
-
 };	
-
-
 	
 	
 function checkuser() {
@@ -182,14 +173,11 @@ function checkuser() {
 if (greenlight && secondgreenlight){
     secondgreenlight = 0;
     var URL = "https://lpscdemo.eu.auth0.com/api/v2/users";
-
-
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
     request.setRequestHeader("content-type", "application/json");
     request.setRequestHeader("accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + Bearer);
-
     var email = CustomerID + "@liveperson.com";
 	
     
@@ -203,19 +191,16 @@ if (greenlight && secondgreenlight){
           "app_metadata": {}
        }));
        console.log("Posting (2)...");
-    
+    function ahead(){
        request.onreadystatechange = function () {
-       function ahead(){
          if (this.status == 400){
 	
                document.getElementById("sendStat").innerHTML = "This User already exists! Proceeding with the login...";
                document.getElementById("sendStat").style = "color : blue";
 	       proceed();
-
         }
       
         else{
-
                document.getElementById("sendStat").innerHTML = "User created! Proceeding with the login...";
                document.getElementById("sendStat").style = "color : blue";  
                proceed();
@@ -224,12 +209,10 @@ if (greenlight && secondgreenlight){
       
       
         };
-
     }
    setTimeout(ahead, 2000);	
 }	
 	
-
 	
 	
 function proceed(){	
@@ -241,10 +224,9 @@ if (thirdgreenlight){
   var request = new XMLHttpRequest();
   request.open('POST', URL, true);
   request.setRequestHeader("content-type", "application/json");
-
   var email = CustomerID + "@liveperson.com";
 	
-  
+  function ahead(){
   request.send(JSON.stringify({
         "grant_type":"client_credentials",
 	"username": email,
@@ -265,24 +247,20 @@ if (thirdgreenlight){
                document.getElementById("sendStat").innerHTML = "Something went wrong here!";
                document.getElementById("sendStat").style = "color : red";
 	       proceed();
-
         }
       
         else{
-	       function ahead(){
-
-                  document.getElementById("sendStat").innerHTML = "User logged in!";
-                  document.getElementById("sendStat").style = "color : green"; 
-	          idToken = (JSON.parse(request.responseText)).access_token;
-	          console.log(idToken);
-                  proceed();
-	       }setTimeout(ahead, 2000);
+               document.getElementById("sendStat").innerHTML = "User logged in!";
+               document.getElementById("sendStat").style = "color : green"; 
+	       var idToken = (JSON.parse(request.responseText)).access_token;
+	       console.log(idToken);
+               proceed();
 	
          }
       
       
       };
-  
+  }setTimeout(ahead, 2000);
 	
 	
 	
@@ -292,10 +270,8 @@ if (thirdgreenlight){
     responseType: 'token',
     clientID:     'CfT6FefV6FsOQOEI2JU551yXUWVGiTxL'
   });
-
     console.log("Posting (3)...");
     console.log(JSON.stringify(webAuth));
-
   webAuth.client.login({
     
     realm: 'Username-Password-Authentication',
@@ -318,15 +294,10 @@ if (thirdgreenlight){
             alert(authResult.idToken);
             return console.log(authResult.idToken);
          }
-
   //  console.log(authResult.accessToken);
-
      });
-
 */
 }
-
-
 }	
 	
 	
@@ -335,11 +306,8 @@ if (thirdgreenlight){
 	
 	
 };	
-
-
 	
 	
-
 	
 </script>
 
