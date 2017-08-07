@@ -248,7 +248,9 @@ function ahead(){
   webAuth.client.login({
     
     realm: 'Username-Password-Authentication',
-    scope: 'openid profile',
+    scope: 'openid profile email',
+    responseType: 'token',
+    audience: 'https://lpscdemo.eu.auth0.com/api/v2/',
     username: 'mdagolini@liveperson.com',
     password: '123456'
  
