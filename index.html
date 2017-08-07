@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">11Customer ID (not email format):</div>
+<div id="text">22Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -219,47 +219,7 @@ function proceed(){
 if (thirdgreenlight){
 	
   thirdgreenlight = 0;
-  var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
-  var request = new XMLHttpRequest();
-  request.open('POST', URL, true);
-  request.setRequestHeader("content-type", "application/json");
-  var email = CustomerID + "@liveperson.com";
-  request.send(JSON.stringify({
-        "grant_type":"client_credentials",
-	"username": email,
-	"password": "123456",
-	"audience": "https://lpscdemo.eu.auth0.com/api/v2/",
-	"client_id": "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL",
-	"client_secret": "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn",
-	"realm":"Username-Password-Authentication"
-       }));
-   console.log("Posting (3)...");
-	
-	
-	
-	
-   request.onreadystatechange = function () {
-         if (this.status == 400){
-	
-               document.getElementById("sendStat").innerHTML = "Something went wrong here!";
-               document.getElementById("sendStat").style = "color : red";
-	       proceed();
-        }
-      
-        else{
-	       function ahead(){
-                  document.getElementById("sendStat").innerHTML = "User logged in!";
-                  document.getElementById("sendStat").style = "color : green"; 
-	          var idToken = (JSON.parse(request.responseText)).access_token;
-	          console.log(idToken);
-                  proceed();
-	       }setTimeout(ahead, 2000);
-	
-         }
-      
-      
-      };
-	
+  console.log("Posting (3)...");
 	
 	
 
@@ -269,10 +229,10 @@ if (thirdgreenlight){
     responseType: 'token',
     clientID:     'C7BND3cQPkekO0phB3dEFD3emRmzPVOZ'
   });
-    console.log("Posting (3)...");
-    console.log(JSON.stringify(webAuth));
+	
+  
+	
   webAuth.client.login({
-    
     realm: 'Username-Password-Authentication',
     username: 'mdagolini@liveperson.com',
     password: '123456',
@@ -305,12 +265,8 @@ if (thirdgreenlight){
 	
 	
 	
-}
-}	
-	
-	
-	
-	
+  }
+ }	
 	
 	
 };	
