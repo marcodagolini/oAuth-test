@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">77Customer ID (not email format):</div>
+<div id="text">88Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -245,9 +245,9 @@ function ahead(){
 
     console.log("Posting (3)...");
 
-  webAuth.client.login({
-    // grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
-    realm: 'Username-Password-Authentication',
+  webAuth.redirect.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    scope: 'openid',
     username: 'mdagolini@liveperson.com',
     password: '123456'
  
