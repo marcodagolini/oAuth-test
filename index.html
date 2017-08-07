@@ -78,7 +78,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">88Customer ID (not email format):</div>
+<div id="text">66Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -180,7 +180,7 @@ if (greenlight && secondgreenlight){
     request.setRequestHeader("Authorization", "Bearer " + Bearer);
     var email = CustomerID + "@liveperson.com";
 	
-    
+    function ahead(){
        request.send(JSON.stringify({
           "connection": "Username-Password-Authentication",
           "email": email,
@@ -191,7 +191,6 @@ if (greenlight && secondgreenlight){
           "app_metadata": {}
        }));
        console.log("Posting (2)...");
-    function ahead(){
        request.onreadystatechange = function () {
          if (this.status == 400){
 	
@@ -208,8 +207,8 @@ if (greenlight && secondgreenlight){
          }
       
       
-        };
-    }
+      };
+   }
    setTimeout(ahead, 2000);	
 }	
 	
@@ -225,8 +224,6 @@ if (thirdgreenlight){
   request.open('POST', URL, true);
   request.setRequestHeader("content-type", "application/json");
   var email = CustomerID + "@liveperson.com";
-	
-  function ahead(){
   request.send(JSON.stringify({
         "grant_type":"client_credentials",
 	"username": email,
@@ -260,7 +257,6 @@ if (thirdgreenlight){
       
       
       };
-  }setTimeout(ahead, 2000);
 	
 	
 	
