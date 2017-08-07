@@ -238,15 +238,15 @@ if (thirdgreenlight){
   thirdgreenlight = 0;
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
-    redirectUri:  'https://marcodagolini.github.io/oAuth-test',
+    // redirectUri:  'https://marcodagolini.github.io/oAuth-test',
     responseType: 'token',
-    clientID:     'C7BND3cQPkekO0phB3dEFD3emRmzPVOZ'
+    clientID:     'CfT6FefV6FsOQOEI2JU551yXUWVGiTxL'
   });
 
     console.log("Posting (3)...");
   function ahead(){
   webAuth.client.login({
-    grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
+    // grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
     realm: 'Username-Password-Authentication',
     username: 'mdagolini@liveperson.com',
     password: '123456'
