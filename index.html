@@ -234,8 +234,14 @@ if (greenlight && secondgreenlight){
 function proceed(){	
 	
 if (thirdgreenlight){
-function ahead(){
+	
   thirdgreenlight = 0;
+	
+	
+	
+	
+	
+/*
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
     responseType: 'token',
@@ -248,8 +254,7 @@ function ahead(){
   webAuth.client.login({
     
     realm: 'Username-Password-Authentication',
-    scope: 'openid profile email',
-    responseType: 'token',
+    grant_type: 'client_credentials',
     audience: 'https://lpscdemo.eu.auth0.com/api/v2/',
     username: 'mdagolini@liveperson.com',
     password: '123456'
@@ -273,8 +278,7 @@ function ahead(){
 
      });
 
-  }setTimeout(ahead, 2000);
-
+*/
 }
 
 
