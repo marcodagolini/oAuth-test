@@ -238,16 +238,16 @@ function ahead(){
   thirdgreenlight = 0;
   var webAuth = new auth0.WebAuth({
     domain:       'lpscdemo.eu.auth0.com',
-    // redirectUri:  'https://marcodagolini.github.io/oAuth-test',
     responseType: 'token',
     clientID:     'CfT6FefV6FsOQOEI2JU551yXUWVGiTxL'
   });
 
     console.log("Posting (3)...");
 
-  webAuth.redirect.loginWithCredentials({
-    connection: 'Username-Password-Authentication',
-    scope: 'openid',
+  webAuth.client.login({
+    
+    realm: 'Username-Password-Authentication',
+    scope: 'openid profile',
     username: 'mdagolini@liveperson.com',
     password: '123456'
  
