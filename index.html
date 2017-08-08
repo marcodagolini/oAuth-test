@@ -252,14 +252,18 @@ if (thirdgreenlight){
 	if (err) {
 	    document.getElementById("sendStat").innerHTML = "Something went wrong here!";
             document.getElementById("sendStat").style = "color : red"; 
-            return console.log(JSON.stringify(err));
+            console.log(JSON.stringify(err));
          }
 	
 	 if (authResult) {
             function ahead(){
 	       document.getElementById("sendStat").innerHTML = "oAuthentication done!!";
                document.getElementById("sendStat").style = "color : green";
-               return console.log(authResult.idToken);
+               console.log(authResult.idToken);
+	       var lpGetAuthenticationToken = function(callback) {
+                    callback(token);
+	       };
+
 	    }setTimeout(ahead, 2000);
          }
   //  console.log(authResult.accessToken);
