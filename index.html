@@ -82,7 +82,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">Customer ID (not email format):</div>
+<div id="text">11Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -104,6 +104,7 @@ var CustomerID = "string";
 var greenlight = 0;
 var secondgreenlight = 1;
 var thirdgreenlight = 1;
+var authResult = "string";
 	
 $("#CustomerID").on("input", function() {
 	if ($("#CustomerID").val() != "") {
