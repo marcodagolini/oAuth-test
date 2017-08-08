@@ -259,7 +259,6 @@ if (thirdgreenlight){
             function ahead(){
 	       document.getElementById("sendStat").innerHTML = "oAuthentication done!!";
                document.getElementById("sendStat").style = "color : green";
-		    callback(authResult.idToken);
                return console.log(authResult.idToken);
 	    }setTimeout(ahead, 2000);
          }
