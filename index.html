@@ -82,7 +82,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">11Customer ID (not email format):</div>
+<div id="text">22Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -266,12 +266,12 @@ if (thirdgreenlight){
                
                var lpMethods = {
                    lpGetAuthenticationToken: function(callback) {
-                   log("LP asked for id_token");
+                   console.log("LP asked for id_token");
  // Do your magic...
  // On Success
-                   callback(id_token);
+                   callback(Token);
  // On Failure
-                   callback(“”,”error reason”);
+                 
                    }
                };
              
