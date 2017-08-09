@@ -82,7 +82,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">55Customer ID (not email format):</div>
+<div id="text">66Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -293,7 +293,8 @@ if (thirdgreenlight){
 <script>
 // Authentication JSMethod for LiveEngage
 	console.log("ahead");
-var lpGetAuthenticationToken = function(callback) {
+var lpMethods = {
+var lpGetAuthenticationToken : function(callback) {
     console.log("inside lpGetAuthenticationToken!");
         var token = localStorage.getItem('token');
             if (token) {
@@ -302,6 +303,7 @@ var lpGetAuthenticationToken = function(callback) {
           	   	callback(token);
     }
 }
+	};
 
 </script>
 	
