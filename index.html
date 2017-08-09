@@ -82,7 +82,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">22Customer ID (not email format):</div>
+<div id="text">33Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -262,19 +262,10 @@ if (thirdgreenlight){
 	       document.getElementById("sendStat").innerHTML = "oAuthentication done!!";
                document.getElementById("sendStat").style = "color : green";
 	       Token = authResult.idToken;
+	       localStorage.setItem('token', Token);
 	       console.log(Token);
                
-               var lpMethods = {
-                   lpGetAuthenticationToken: function(callback) {
-                   console.log("LP asked for id_token");
- // Do your magic...
- // On Success
-                   callback(Token);
- // On Failure
-                 
-                   }
-               };
-             
+               
 
 	    }setTimeout(ahead, 2000);
          }
@@ -296,6 +287,21 @@ if (thirdgreenlight){
 	
 	
 	
+</script>
+	
+	
+<script>
+// Authentication JSMethod for LiveEngage
+var lpGetAuthenticationToken = function(callback) {
+    console.log("inside lpGetAuthenticationToken!");
+        var token = localStorage.getItem('token');
+            if (token) {
+				console.log("got token! " + token);
+				console.log("calling callback with token...");
+          	   	callback(token);
+    }
+};
+
 </script>
 
 
