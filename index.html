@@ -300,7 +300,7 @@ if (thirdgreenlight){
 console.log("ahead");
 var lpGetAuthenticationToken = function(callback) {
     console.log("inside lpGetAuthenticationToken!");
-        tokenStored = localStorage.getItem('token');
+        var tokenStored = localStorage.getItem('token');
             if (tokenStored) {
 				console.log("got token! " + tokenStored);
 				console.log("calling callback with token...");
