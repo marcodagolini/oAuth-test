@@ -132,7 +132,8 @@ secondgreenlight = 1;
 thirdgreenlight = 1;
 	
 if (($("#CustomerID").val() != "") && firstgreenlight) {
-      
+    
+    firstgreenlight = 0;
     var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
     document.getElementById("sendStat").innerHTML = "";
     CustomerID = document.getElementById("CustomerID").value;
