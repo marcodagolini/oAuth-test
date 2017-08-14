@@ -257,7 +257,7 @@ if (thirdgreenlight){
     audience: 'https://lpscdemo.eu.auth0.com/api/v2/'
  
   }, function(err, authResult) {
-	
+	function ahead(){
 	if (err) {
 	    document.getElementById("sendStat").innerHTML = "Something went wrong here!";
             document.getElementById("sendStat").style = "color : red"; 
@@ -265,17 +265,15 @@ if (thirdgreenlight){
          }
 	
 	 if (authResult) {
-            function ahead(){
+           
 	       document.getElementById("sendStat").innerHTML = "oAuthentication done!!";
                document.getElementById("sendStat").style = "color : green";
 	       Token = authResult.idToken;
 	       localStorage.setItem('token', Token);
 	       console.log(Token);
-               
-               
-
-	    }setTimeout(ahead, 2000);
+           
          }
+	}setTimeout(ahead, 2000);
   //  console.log(authResult.accessToken);
      });
 
