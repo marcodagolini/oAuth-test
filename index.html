@@ -246,7 +246,7 @@ if (thirdgreenlight){
     clientID:     client_id
   });
 	
-  
+  function ahead(){
   var email = CustomerID + "@liveperson.com";
 	
   webAuth.client.login({
@@ -257,7 +257,7 @@ if (thirdgreenlight){
     audience: 'https://lpscdemo.eu.auth0.com/api/v2/'
  
   }, function(err, authResult) {
-	function ahead(){
+
 	if (err) {
 	    document.getElementById("sendStat").innerHTML = "Something went wrong here!";
             document.getElementById("sendStat").style = "color : red"; 
@@ -273,13 +273,13 @@ if (thirdgreenlight){
 	       console.log(Token);
            
          }
-	}setTimeout(ahead, 2000);
+
   //  console.log(authResult.accessToken);
      });
 
 	
 	
-	
+   }setTimeout(ahead, 2000);	
 	
 	
 	
