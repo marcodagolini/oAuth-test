@@ -100,8 +100,8 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
     
 	
 <script>
-var client_id  = "CfT6FefV6FsOQOEI2JU551yXUWVGiTxL";
-var client_secret = "Wt9YfJsF4BRWYe1mid4MyuuZZRjjp9u8PY8cWF2d3IRtpNQHtyRogZ0I9JGjKKbn";
+var client_id  = "ZIwHOueH2DE7b0oOE7JSgGpJGfEqwC8u";
+var client_secret = "ZoAfkxVlYE8bStPMm6QPkWvQHdfDM87U3Fd5t60FkbQjng33OZ2GQNAUfou4hEl5";
 var Bearer = "string";
 var CustomerID = "string";
 var firstgreenlight = 0;
@@ -198,7 +198,7 @@ if (greenlight && secondgreenlight){
 	
     function ahead(){
        request.send(JSON.stringify({
-          "connection": "Username-Password-Authentication",
+          "connection": "MDTest",
           "email": email,
           "password": "123456",
           "user_metadata": {},
@@ -243,14 +243,14 @@ if (thirdgreenlight){
     domain:       'lpscdemo.eu.auth0.com',
     redirectUri:  '',
     responseType: 'token',
-    clientID:     'C7BND3cQPkekO0phB3dEFD3emRmzPVOZ'
+    clientID:     client_id
   });
 	
   
   var email = CustomerID + "@liveperson.com";
 	
   webAuth.client.login({
-    realm: 'Username-Password-Authentication',
+    realm: 'MDTest',
     username: email,
     password: '123456',
     scope: 'openid profile',
