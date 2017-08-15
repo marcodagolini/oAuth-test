@@ -85,7 +85,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">99Customer ID (not email format):</div>
+<div id="text">11Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -243,7 +243,8 @@ if (thirdgreenlight){
     domain:       'lpscdemo.eu.auth0.com',
     redirectUri:  '',
     responseType: 'token',
-    clientID:     client_id
+    clientID:     client_id,
+    scope: 'openid email user_metadata'
   });
   console.log(webAuth);
 	
@@ -253,9 +254,7 @@ if (thirdgreenlight){
   webAuth.client.login({
     realm: 'MDTest',
     username: email,
-    password: '123456',
-    scope: 'openid profile',
-    audience: 'https://lpscdemo.eu.auth0.com/api/v2/'
+    password: '123456'
  
   }, function(err, authResult) {
 
