@@ -275,16 +275,14 @@ if (thirdgreenlight){
 	       Token = authResult.idToken;
 	       localStorage.setItem('token', Token);
 	       console.log(Token);
-	       
 	       console.log("outside lpGetAuthenticationToken!");
-	       var lpGetAuthenticationToken = callback(Token);
-                            
-
-	      
-		       
-		       
-	     
-           
+		 
+	       var lpGetAuthenticationToken = function(callback) {
+                  console.log("inside lpGetAuthenticationToken!");
+                  callback(token);
+    
+               };
+       
          }
 
      });
