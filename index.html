@@ -112,7 +112,7 @@ var Token = "string";
 var tokenStored = "string";
 var lpGetAuthenticationToken = function(callback) {
                   console.log("inside lpGetAuthenticationToken!");
-                  callback(Token);
+                  if(callback) callback(Token);
     
                };
 	
