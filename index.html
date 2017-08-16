@@ -85,7 +85,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">44Customer ID (not email format):</div>
+<div id="text">55Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -110,15 +110,7 @@ var secondgreenlight = 1;
 var thirdgreenlight = 1;
 var Token = "string";
 var tokenStored = "string";
-var lpGetAuthenticationToken = function(callback) {
-    console.log("inside lpGetAuthenticationToken!");
-        var token = localStorage.getItem('token');
-            if (token) {
-				console.log("got token! " + token);
-				console.log("calling callback with token...");
-          	   	callback(token);
-    }
-};
+lpGetAuthenticationToken();
 	
 	
 	
