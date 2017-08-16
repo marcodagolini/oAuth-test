@@ -125,11 +125,6 @@ $("#CustomerID").on("input", function() {
 	
 
 
-	 var lpGetAuthenticationToken = function(callback) {
-                         console.log("inside lpGetAuthenticationToken!");
-                         callback(Token);
-                            
-               };
 	
 
 	
@@ -253,7 +248,7 @@ if (thirdgreenlight){
      redirectUri: '',
      responseType: 'token'
   });
-  console.log(webAuth);
+  
 	
   function ahead(){
   var email = CustomerID + "@liveperson.com";
@@ -280,7 +275,13 @@ if (thirdgreenlight){
 	       Token = authResult.idToken;
 	       localStorage.setItem('token', Token);
 	       console.log(Token);
-	    
+	       
+	       console.log("outside lpGetAuthenticationToken!");
+	       var lpGetAuthenticationToken = function(callback) {
+                         console.log("inside lpGetAuthenticationToken!");
+                         callback(Token);
+                            
+               };
 	      
 		       
 		       
@@ -288,7 +289,6 @@ if (thirdgreenlight){
            
          }
 
-  //  console.log(authResult.accessToken);
      });
 
 	
