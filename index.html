@@ -113,6 +113,19 @@ var tokenStored = "string";
 var lpGetAuthenticationToken;
 
 	
+	lpGetAuthenticationToken = function(callback) {
+    console.log("inside lpGetAuthenticationToken!");
+        var token = localStorage.getItem('token');
+            if (token) {
+				console.log("got token! " + token);
+				console.log("calling callback with token...");
+          	   	callback(token);
+    }
+};
+	
+	
+	
+	
 $("#CustomerID").on("input", function() {
 	if ($("#CustomerID").val() != "") {
             document.getElementById("sendStat").innerHTML = "Ready to oAuthenticate";
