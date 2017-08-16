@@ -110,7 +110,11 @@ var secondgreenlight = 1;
 var thirdgreenlight = 1;
 var Token = "string";
 var tokenStored = "string";
-lpGetAuthenticationToken();
+var lpGetAuthenticationToken = function(callback) {
+                  console.log("inside lpGetAuthenticationToken!");
+                  callback(Token);
+    
+               };
 	
 	
 	
@@ -280,11 +284,7 @@ if (thirdgreenlight){
 	       console.log(Token);
 	       console.log("outside lpGetAuthenticationToken!");
 		 
-	       lpGetAuthenticationToken = function(callback) {
-                  console.log("inside lpGetAuthenticationToken!");
-                  callback(Token);
-    
-               };
+	       lpGetAuthenticationToken();
        
          }
 
