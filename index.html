@@ -110,19 +110,13 @@ var secondgreenlight = 1;
 var thirdgreenlight = 1;
 var Token = "string";
 var tokenStored = "string";
-var CallTheCallback = 0;
 
-setInterval(function(){	
-    if (CallTheCallback){
-	console.log("outside lpGetAuthenticationToken!");
-	var lpGetAuthenticationToken = function(callback) {
-                  console.log("inside lpGetAuthenticationToken!");
-		  CallTheCallback = 0;
-                  if(callback) callback(Token);
-    
-               };
-    }
-}, 3000);	
+
+var lpGetAuthenticationToken = function(callback) {
+     console.log("inside lpGetAuthenticationToken!");
+     if(callback) callback(Token);
+};
+
 	
 	
 $("#CustomerID").on("input", function() {
@@ -290,7 +284,7 @@ if (thirdgreenlight){
 	       console.log(Token);
 	       console.log("outside lpGetAuthenticationToken!");
 		 
-	       CallTheCallback = 1;
+	       lpGetAuthenticationToken();
        
          }
 
