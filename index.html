@@ -85,7 +85,7 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <body>
 
 <div id="title">oAuth Tester</div><br>
-<div id="text">77Customer ID (not email format):</div>
+<div id="text">88Customer ID (not email format):</div>
 
 <input id="CustomerID" float="left" size="30" type="input"><br><br>
 
@@ -110,13 +110,19 @@ var secondgreenlight = 1;
 var thirdgreenlight = 1;
 var Token = "string";
 var tokenStored = "string";
-var lpGetAuthenticationToken = function(callback) {
+var CallTheCallback = 0;
+
+setInterval(function(){	
+    if (CallTheCallback){
+	console.log("outside lpGetAuthenticationToken!");  
+	CallTheCallback = 0;
+	var lpGetAuthenticationToken = function(callback) {
                   console.log("inside lpGetAuthenticationToken!");
                   if(callback) callback(Token);
     
                };
-	
-	
+    }
+}, 3000);	
 	
 	
 $("#CustomerID").on("input", function() {
@@ -284,7 +290,7 @@ if (thirdgreenlight){
 	       console.log(Token);
 	       console.log("outside lpGetAuthenticationToken!");
 		 
-	       lpGetAuthenticationToken();
+	       CallTheCallback = 1;
        
          }
 
