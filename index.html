@@ -120,8 +120,10 @@ var tokenStored = "string";
 
 
 var lpGetAuthenticationToken = function(callback) {
-     console.log("inside lpGetAuthenticationToken!");
-     if(callback) callback(Token);
+	function ahead(){
+     		console.log("inside lpGetAuthenticationToken!");
+     		if(callback) callback(Token);
+	}setTimeout(ahead, 5000);
 };
 
 	
@@ -186,8 +188,7 @@ if (($("#CustomerID").val() != "") && firstgreenlight) {
 	  console.log(Bearer); 
 	  return checkuser();
 		
-         }
-        setTimeout(ahead, 2000);
+         }setTimeout(ahead, 2000);
 	
 	
       }
