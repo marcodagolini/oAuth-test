@@ -295,15 +295,15 @@ if (thirdgreenlight){
                document.getElementById("sendStat").style = "color : green";
 	       Token = authResult.idToken;
 	       localStorage.setItem('token', Token);
-	       // console.log(authResult);
+	       console.log(authResult);
 	       console.log("outside lpGetAuthenticationToken!");
 		 
 		 
-		 webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-                   if (user) {
-		       console.log(user);
-	           }
-                 });
+		 // webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+                   // if (user) {
+		       // console.log(user);
+	           // }
+                 // });
 		 
 		 
 		 
