@@ -299,17 +299,22 @@ if (thirdgreenlight){
 	       // console.log(authResult);
 	       console.log("outside lpGetAuthenticationToken!");
 		 
+		 
+		 webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+                   if (user) {
+		       console.log(user);
+	           }
+                 });
+		 
+		 
+		 
 	       lpGetAuthenticationToken();
        
          }
 
      });
 	  
-   webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-        if (user) {
-		console.log(user);
-	}
-    });
+   
 
 	
 	
