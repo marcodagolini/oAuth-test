@@ -111,9 +111,9 @@ font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","
 <button type="button" onclick="sendData()">oAuthenticate!</button>
 <div id="sendStat"></div>
 	<br><br>
-<div id="MDembedded"></div>
-<div id="MDembeddedHTML"></div>
-<div id="MDembeddedHTMLWebChat"></div>
+
+<div id="MDembeddedHTML" style="visibility:hidden;"></div>
+
 
 	
 	
@@ -305,7 +305,7 @@ if (thirdgreenlight){
 	       localStorage.setItem('token', Token);
 	       console.log(authResult);
 	       console.log("outside lpGetAuthenticationToken!");
-		 
+	       $('#MDembeddedHTML').attr('style','visibility: visible');
 		 
 		 // webAuth.client.userInfo(authResult.accessToken, function(err, user) {
                    // if (user) {
