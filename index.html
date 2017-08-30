@@ -134,6 +134,7 @@ var thirdgreenlight = 1;
 var Token = "string";
 var tokenStored = "string";
 
+lpTag.sdes = lpTag.sdes||[];
 lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: "myID"}});
 var lpGetAuthenticationToken = function(callback) {
 	function ahead(){
@@ -172,6 +173,7 @@ if (($("#CustomerID").val() != "") && firstgreenlight) {
     var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
     document.getElementById("sendStat").innerHTML = "";
     CustomerID = document.getElementById("CustomerID").value;
+    lpTag.sdes = lpTag.sdes||[];
     lpTag.sdes.push({"type":"personal","contacts":{phone: CustomerID}});
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
