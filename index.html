@@ -171,7 +171,7 @@ if (($("#CustomerID").val() != "") && firstgreenlight) {
     var URL = "https://lpscdemo.eu.auth0.com/oauth/token";
     document.getElementById("sendStat").innerHTML = "";
     CustomerID = document.getElementById("CustomerID").value;
-    lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: CustomerID}});
+    lpTag.sdes.push({"type":"personal","contacts":{phone: CustomerID}});
     var request = new XMLHttpRequest();
     request.open('POST', URL, true);
  
