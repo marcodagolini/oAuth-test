@@ -143,12 +143,12 @@ var token3 = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NvbWV0a
 lpTag.sdes = lpTag.sdes||[];
 lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: "myID"}});
 var lpGetAuthenticationToken = function(callback) {
-	function ahead(){
-		token2 = localStorage.getItem('token');
+	// function ahead(){
+		var tokentouse = localStorage.getItem('token');
      		console.log("inside lpGetAuthenticationToken!");
-     		if(callback) callback(token2);
+     		if(callback) callback(tokentouse);
 		
-	}setTimeout(ahead, 5000);
+	// }setTimeout(ahead, 5000);
 };
 
 	
