@@ -143,9 +143,10 @@ lpTag.sdes = lpTag.sdes||[];
 lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: "myID"}});
 var lpGetAuthenticationToken = function(callback) {
 	function ahead(){
+		token2 = localStorage.getItem('token');
      		console.log("inside lpGetAuthenticationToken!");
      		if(callback) callback(token2);
-		token2 = token3;
+		
 	}setTimeout(ahead, 5000);
 };
 
