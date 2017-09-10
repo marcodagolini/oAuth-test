@@ -138,7 +138,7 @@ var token2 = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NvbWV0a
 	
 lpTag.sdes = lpTag.sdes||[];
 lpTag.sdes.push({"type":"ctmrinfo","info":{customerId: "myID"}});
-var something = function(callback) {
+var lpGetAuthenticationToken = function(callback) {
 	function ahead(){
      		console.log("inside lpGetAuthenticationToken!");
      		if(callback) callback(token2);
@@ -320,7 +320,7 @@ if (thirdgreenlight){
 		 
 		 
 		 
-	       something();
+	       lpGetAuthenticationToken();
        
          }
 
